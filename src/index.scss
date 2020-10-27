@@ -1,0 +1,327 @@
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Kumbh+Sans&family=Roboto+Mono&display=swap");
+
+/* Colors */
+$colors: (
+  primary: #2d3142,
+  secondary: #ffffff,
+  tertiary: #4f5d75,
+  accent: #ef8354,
+);
+
+@function color($color) {
+  @return map-get($map: $colors, $key: $color);
+}
+
+@function colorAlpha($color, $alpha) {
+  @return rgba(color($color), $alpha);
+}
+
+/* Fonts */
+$fonts: (
+  body: (
+    "Kumbh Sans",
+    sans-serif,
+  ),
+  hero: (
+    "Comfortaa",
+    sans-serif,
+  ),
+  accent: (
+    "Roboto Mono",
+    monospace,
+  ),
+);
+
+@function font($font) {
+  @return map-get($map: $fonts, $key: $font);
+}
+
+/* Font Sizes */
+$fontsizes: (
+  xs: 0.563rem,
+  s: 0.75rem,
+  r: 1rem,
+  m: 1.333rem,
+  l: 2.369rem,
+  xl: 4.209rem,
+);
+
+@function size($size) {
+  @return map-get($map: $fontsizes, $key: $size);
+}
+
+/* Box Sizing */
+$margin: 0.6rem;
+$padding: 0.4rem;
+
+/* Border Sizing */
+$border-width: 0.05rem;
+$border-radius: 4pt;
+
+* {
+  font-family: font(body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+div.root,
+div.App {
+  scrollbar-width: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: color(primary);
+}
+
+div.App{
+  background-color: colorAlpha(tertiary, 0.8);
+  padding: $padding * 2;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: font(hero);
+  margin: 0;
+  color: color(accent);
+  display: block;
+}
+
+h1 {
+  font-size: size(xl);
+  text-align: center;
+}
+
+h2 {
+  font-size: size(l);
+  margin: 0.2em;
+}
+
+h3 {
+  font-size: size(m);
+  position: absolute;
+  left: 2pt;
+}
+
+p,
+a,
+li {
+  font-size: size(r);
+  color: color(primary);
+}
+
+button {
+  font-size: size(r);
+  font-family: font(hero);
+  color: color(primary);
+
+  &:hover,
+  &:focus {
+    background-color: color(accent);
+  }
+
+  &:active {
+    background-color: color(primary);
+    color: color(secondary);
+  }
+
+  &.delete,
+  &.add {
+    font-size: size(m);
+    text-align: center;
+    width: 30pt;
+    height: 30pt;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0px 5px 10px colorAlpha(primary, 0.2);
+  }
+
+  &.delete {
+    font-weight: bold;
+    top: -10pt;
+    right: -10pt;
+    background-color: red;
+  }
+
+  &.add {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: springgreen;
+  }
+}
+
+p,
+input.text {
+  margin: $margin;
+}
+
+input {
+  box-sizing: border-box;
+  font-size: size(r);
+  display: block;
+  width: 100%;
+
+  &.hero {
+    font-family: font(hero);
+    color: color(accent);
+
+    &:focus {
+      color: colorAlpha(accent, 0.8);
+    }
+  }
+
+  &.l {
+    font-size: size(l);
+  }
+
+  &.m {
+    font-size: size(m);
+  }
+
+  &:focus {
+    font-family: font(accent);
+  }
+}
+
+main.editor {
+  width: inherit;
+  position: relative;
+  padding: $padding;
+  box-sizing: border-box;
+
+  section.section {
+    min-height: 100pt;
+    position: relative;
+    width: inherit;
+
+    div.header {
+      width: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2pt solid color(accent);
+      box-sizing: border-box;
+      padding: $padding;
+
+      input.sectionName,
+      input.sectionName + input {
+        margin: 0;
+        padding: $padding;
+        text-transform: capitalize;
+      }
+
+      input.sectionName + input {
+        text-align: right;
+      }
+    }
+
+    div.products {
+      position: relative;
+      border: $border-width solid color(accent);
+      border-width: $border-width / 2 $border-width * 4;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: stretch;
+      justify-content: center;
+      padding: $padding * 2;
+      padding-top: 20pt;
+
+      h3 {
+        position: absolute;
+        top: 2pt;
+      }
+    }
+  }
+}
+
+div.product {
+  position: relative;
+  flex: 1 1 45%;
+  box-sizing: border-box;
+  box-shadow: 0px 10px 20px colorAlpha(primary, 0.4);
+  border-radius: $border-radius;
+  margin: $margin;
+  padding: $padding;
+  min-height: 50pt;
+
+  input.name {
+    display: block;
+    text-transform: capitalize;
+    text-overflow: clip;
+    width: inherit;
+  }
+
+  textarea.description {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 50pt;
+  }
+
+  div.variants {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+    padding: $padding;
+    padding-top: 20pt;
+    border: $border-width solid color(accent);
+    border-width: $border-width;
+
+    h3 {
+      position: absolute;
+      top: 2pt;
+    }
+  }
+}
+
+div.variant {
+  flex-basis: 30%;
+  min-height: 50pt;
+  box-shadow: 0px 5px 10px colorAlpha(primary, 0.2);
+  border-radius: $border-radius;
+  margin: $margin;
+  position: relative;
+
+  img {
+    display: block;
+    width: 80pt;
+    height: 80pt;
+    object-fit: cover;
+    padding: $padding / 2;
+    margin: $margin;
+
+    &.select {
+      outline: 3pt solid color(accent);
+    }
+
+    &:hover {
+      filter: blur(2pt) grayscale(80%);
+    }
+
+    &:active {
+      filter: blur(4pt) grayscale(100%) brightness(80%);
+    }
+  }
+
+  input.alt {
+    font-family: font(accent);
+    padding: $padding;
+    text-align: right;
+  }
+
+  input.price {
+    font-size: size(m);
+    padding: $padding;
+    line-height: 1.1;
+  }
+}

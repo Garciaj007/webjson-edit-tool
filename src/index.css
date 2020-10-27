@@ -1,0 +1,312 @@
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Kumbh+Sans&family=Roboto+Mono&display=swap");
+/* Colors */
+/* Fonts */
+/* Font Sizes */
+/* Box Sizing */
+/* Border Sizing */
+* {
+  font-family: "Kumbh Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+div.root,
+div.App {
+  scrollbar-width: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #2d3142;
+}
+
+div.App {
+  background-color: rgba(79, 93, 117, 0.8);
+  padding: 0.8rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Comfortaa", sans-serif;
+  margin: 0;
+  color: #ef8354;
+  display: block;
+}
+
+h1 {
+  font-size: 4.209rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.369rem;
+  margin: 0.2em;
+}
+
+h3 {
+  font-size: 1.333rem;
+  position: absolute;
+  left: 2pt;
+}
+
+p,
+a,
+li {
+  font-size: 1rem;
+  color: #2d3142;
+}
+
+button {
+  font-size: 1rem;
+  font-family: "Comfortaa", sans-serif;
+  color: #2d3142;
+}
+
+button:hover, button:focus {
+  background-color: #ef8354;
+}
+
+button:active {
+  background-color: #2d3142;
+  color: #ffffff;
+}
+
+button.delete, button.add {
+  font-size: 1.333rem;
+  text-align: center;
+  width: 30pt;
+  height: 30pt;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-box-shadow: 0px 5px 10px rgba(45, 49, 66, 0.2);
+          box-shadow: 0px 5px 10px rgba(45, 49, 66, 0.2);
+}
+
+button.delete {
+  font-weight: bold;
+  top: -10pt;
+  right: -10pt;
+  background-color: red;
+}
+
+button.add {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: springgreen;
+}
+
+p,
+input.text {
+  margin: 0.6rem;
+}
+
+input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1rem;
+  display: block;
+  width: 100%;
+}
+
+input.hero {
+  font-family: "Comfortaa", sans-serif;
+  color: #ef8354;
+}
+
+input.hero:focus {
+  color: rgba(239, 131, 84, 0.8);
+}
+
+input.l {
+  font-size: 2.369rem;
+}
+
+input.m {
+  font-size: 1.333rem;
+}
+
+input:focus {
+  font-family: "Roboto Mono", monospace;
+}
+
+main.editor {
+  width: inherit;
+  position: relative;
+  padding: 0.4rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main.editor section.section {
+  min-height: 100pt;
+  position: relative;
+  width: inherit;
+}
+
+main.editor section.section div.header {
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 2pt solid #ef8354;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.4rem;
+}
+
+main.editor section.section div.header input.sectionName,
+main.editor section.section div.header input.sectionName + input {
+  margin: 0;
+  padding: 0.4rem;
+  text-transform: capitalize;
+}
+
+main.editor section.section div.header input.sectionName + input {
+  text-align: right;
+}
+
+main.editor section.section div.products {
+  position: relative;
+  border: 0.05rem solid #ef8354;
+  border-width: 0.025rem 0.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.8rem;
+  padding-top: 20pt;
+}
+
+main.editor section.section div.products h3 {
+  position: absolute;
+  top: 2pt;
+}
+
+div.product {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 45%;
+          flex: 1 1 45%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 10px 20px rgba(45, 49, 66, 0.4);
+          box-shadow: 0px 10px 20px rgba(45, 49, 66, 0.4);
+  border-radius: 4pt;
+  margin: 0.6rem;
+  padding: 0.4rem;
+  min-height: 50pt;
+}
+
+div.product input.name {
+  display: block;
+  text-transform: capitalize;
+  text-overflow: clip;
+  width: inherit;
+}
+
+div.product textarea.description {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  min-height: 50pt;
+}
+
+div.product div.variants {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.4rem;
+  padding-top: 20pt;
+  border: 0.05rem solid #ef8354;
+  border-width: 0.05rem;
+}
+
+div.product div.variants h3 {
+  position: absolute;
+  top: 2pt;
+}
+
+div.variant {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  min-height: 50pt;
+  -webkit-box-shadow: 0px 5px 10px rgba(45, 49, 66, 0.2);
+          box-shadow: 0px 5px 10px rgba(45, 49, 66, 0.2);
+  border-radius: 4pt;
+  margin: 0.6rem;
+  position: relative;
+}
+
+div.variant img {
+  display: block;
+  width: 80pt;
+  height: 80pt;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 0.2rem;
+  margin: 0.6rem;
+}
+
+div.variant img.select {
+  outline: 3pt solid #ef8354;
+}
+
+div.variant img:hover {
+  -webkit-filter: blur(2pt) grayscale(80%);
+          filter: blur(2pt) grayscale(80%);
+}
+
+div.variant img:active {
+  -webkit-filter: blur(4pt) grayscale(100%) brightness(80%);
+          filter: blur(4pt) grayscale(100%) brightness(80%);
+}
+
+div.variant input.alt {
+  font-family: "Roboto Mono", monospace;
+  padding: 0.4rem;
+  text-align: right;
+}
+
+div.variant input.price {
+  font-size: 1.333rem;
+  padding: 0.4rem;
+  line-height: 1.1;
+}
+/*# sourceMappingURL=index.css.map */
